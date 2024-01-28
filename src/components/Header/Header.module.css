@@ -1,0 +1,45 @@
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1em 5em;
+}
+
+.menu {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 1em;
+  list-style-type: none;
+}
+
+.link {
+  color: #fff;
+  text-decoration: none;
+}
+
+.link:hover {
+  color: orange;
+}
+
+.list {
+  font-size: 1em;
+}
+
+.logo {
+  cursor: pointer;
+}
+
+.icon {
+  fill: #fff;
+  cursor: pointer;
+}
+
+.icon:hover {
+  fill: orange;
+}
+
+.right {
+  display: flex;
+  gap: 1em;
+}

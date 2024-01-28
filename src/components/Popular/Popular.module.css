@@ -1,0 +1,31 @@
+.menu_list {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(242px, 1fr));
+  gap: 20px;
+  list-style: none;
+}
+
+.image {
+  max-width: 242px;
+  max-height: 358px;
+  /* width: 100%; */
+  height: 100%;
+}
+
+.title {
+  margin-bottom: 1.5em;
+}
+
+.link_title {
+  text-decoration: none;
+}
+
+.link_title > p:hover {
+  color: orange;
+}
+
+.description {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  max-width: 242px;
+}
