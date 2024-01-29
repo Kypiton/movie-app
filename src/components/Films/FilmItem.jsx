@@ -1,20 +1,20 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Spinner from '../Spinner/Spinner';
-import styles from './Popular.module.css';
+import styles from './Films.module.css';
 import movieService from '../../utils/movie';
 import img from '../../assets/image-not-found.jpg';
 import err from '../../assets/7VE.gif';
 
-export default function PopularItem() {
+export default function FilmItem() {
   const [films, setFilms] = useState();
   const [loading, setLoading] = useState(true);
-  const { popularId } = useParams();
+  const { filmId } = useParams();
   const navigate = useNavigate();
 
-  async function getFilms() {
+  async function getFilmById() {
     try {
-      const data = await movieService.fetchPopularById(popularId);
+      const data = await movieService.fetchFilmById(filmId);
       setFilms(data);
       setLoading(false);
     } catch (error) {
@@ -23,8 +23,8 @@ export default function PopularItem() {
   }
 
   useEffect(() => {
-    getFilms();
-  }, [popularId]);
+    getFilmById();
+  }, [filmId]);
 
   if (!films && !loading) {
     return (

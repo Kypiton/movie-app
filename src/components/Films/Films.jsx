@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import Spinner from '../Spinner/Spinner';
 import styles from './Films.module.css';
 import movieService from '../../utils/movie';
@@ -28,25 +29,28 @@ export default function Films() {
         <Spinner />
       ) : (
         <ul className={styles.menu_list}>
-          {films.map(item => (
-            <li key={item.id} className={styles.list}>
-              <a href='#'>
-                <img
-                  src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
-                  alt={item.title}
-                  className={styles.image}
-                />
-              </a>
-              <div className={styles.description}>
-                <a href='#' className={styles.link_title}>
-                  <p>{item.title}</p>
-                </a>
-                <p>Rate: {item.vote_average}</p>
-                <p>{item.release_date.slice(0, 4)}</p>
-                <p>Language: {item.original_language}</p>
-              </div>
-            </li>
-          ))}
+          {films.map(function (item) {
+            const id = item.id;
+            return (
+              <li key={id} className={styles.list}>
+                <Link to={`/${id}`}>
+                  <img
+                    src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
+                    alt={item.title}
+                    className={styles.image}
+                  />
+                </Link>
+                <div className={styles.description}>
+                  <Link to={`/${id}`} className={styles.link_title}>
+                    <p>{item.title}</p>
+                  </Link>
+                  <p>Rate: {item.vote_average}</p>
+                  <p>{item.release_date.slice(0, 4)}</p>
+                  <p>Language: {item.original_language}</p>
+                </div>
+              </li>
+            );
+          })}
         </ul>
       )}
     </div>

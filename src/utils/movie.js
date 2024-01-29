@@ -36,6 +36,15 @@ class MovieService {
     }
   }
 
+  async fetchFilmById(id) {
+    try {
+      const data = await this.$http.get(`/movie/${id}`);
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   async fetchSerials() {
     try {
       const data = await this.$http.get(

@@ -4,6 +4,7 @@ import ErrorBoundary from './components/ErrorBoundary/ErrorBoundary';
 import Collections from './components/Collections/Collections';
 import PopularItem from './components/Popular/PopularItem';
 import Animation from './components/Animation/Animation';
+import FilmItem from './components/Films/FilmItem';
 import Popular from './components/Popular/Popular';
 import Serials from './components/Serials/Serials';
 import Layout from './components/Layout/Layout';
@@ -20,6 +21,7 @@ function App() {
             <Route path='/' element={<Popular />} />
             <Route path='/:popularId' element={<PopularItem />} />
             <Route path='/films' element={<Films />} />
+            <Route path='/films/:filmId' exact element={<FilmItem />} />
             <Route path='/serials' element={<Serials />} />
             {/* <Route path='/tv' element={<Tv />} />
           <Route path='/animation' element={<Animation />} /> */}

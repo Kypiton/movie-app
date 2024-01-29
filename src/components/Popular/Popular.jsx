@@ -44,9 +44,9 @@ export default function Popular() {
                   />
                 </Link>
                 <div className={styles.description}>
-                  <a href='#' className={styles.link_title}>
+                  <Link to={`/${id}`} className={styles.link_title}>
                     <p>{item.original_name}</p>
-                  </a>
+                  </Link>
                   <p>Rate: {item.vote_average}</p>
                   <p>{item.first_air_date?.slice(0, 4) || 'Soon'}</p>
                   <p>Language: {item.original_language}</p>
