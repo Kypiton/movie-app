@@ -33,7 +33,7 @@ export default function Films() {
             const id = item.id;
             return (
               <li key={id} className={styles.list}>
-                <Link to={`/${id}`}>
+                <Link to={`/films/${id}`}>
                   <img
                     src={`https://image.tmdb.org/t/p/w500${item.poster_path}`}
                     alt={item.title}
@@ -41,7 +41,7 @@ export default function Films() {
                   />
                 </Link>
                 <div className={styles.description}>
-                  <Link to={`/${id}`} className={styles.link_title}>
+                  <Link to={`/films/${id}`} className={styles.link_title}>
                     <p>{item.title}</p>
                   </Link>
                   <p>Rate: {item.vote_average}</p>

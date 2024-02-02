@@ -60,9 +60,7 @@ export default function PopularItem() {
                   />
                 </a>
                 <div className={styles.description}>
-                  <a href='#' className={styles.link_title}>
-                    <p>{films.name}</p>
-                  </a>
+                  <p>{films.name}</p>
                   <p>Popularity: {films.popularity}</p>
                   <p>Last date: {films.last_air_date?.slice(0, 4) || 'Soon'}</p>
                   <p>Language: {films.original_language}</p>

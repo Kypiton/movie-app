@@ -27,6 +27,8 @@
 }
 
 .logo {
+  width: 25px;
+  height: 25px;
   cursor: pointer;
 }
 
@@ -41,5 +43,14 @@
 
 .right {
   display: flex;
+  justify-content: center;
+  align-items: center;
   gap: 1em;
+}
+
+.userImg {
+  width: 32px;
+  height: 32px;
+  border-radius: 50%;
+  cursor: pointer;
 }

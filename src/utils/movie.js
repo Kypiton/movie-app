@@ -66,6 +66,15 @@ class MovieService {
       console.log(error);
     }
   }
+
+  async fetchSoonById(id) {
+    try {
+      const data = await this.$http.get(`/discover/movie/${id}?sort_by=upcoming.desc`);
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
 }
 
 const movieService = new MovieService();

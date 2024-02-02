@@ -6,8 +6,7 @@ class HttpService {
       baseURL: `https://api.themoviedb.org/3`,
       headers: {
         'Content-Type': 'application/json',
-        Authorization:
-          'Bearer eyJhbGciOiJIUzI1NiJ9.eyJhdWQiOiI2MzQ5ODYyNWRjM2E4NTE5ZDg2ZjZkMDc5MzIzZDE3NyIsInN1YiI6IjY1YWZhMTNmYmQ1ODhiMDEwYjVlMTQyZiIsInNjb3BlcyI6WyJhcGlfcmVhZCJdLCJ2ZXJzaW9uIjoxfQ.d02trqEy4oEpEoNPEe9wAuFfa0urkXRzV5kjKQNBckg',
+        Authorization: `Bearer ${import.meta.env.VITE_API_KEY}`,
       },
     });
 

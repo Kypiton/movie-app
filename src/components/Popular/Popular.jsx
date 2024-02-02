@@ -34,7 +34,7 @@ export default function Popular() {
             const id = item.id;
             return (
               <li key={id} className={styles.list}>
-                <Link to={`/${id}`}>
+                <Link to={`/popular/${id}`}>
                   <img
                     src={
                       item.poster_path ? `https://image.tmdb.org/t/p/w500${item.poster_path}` : img
@@ -44,7 +44,7 @@ export default function Popular() {
                   />
                 </Link>
                 <div className={styles.description}>
-                  <Link to={`/${id}`} className={styles.link_title}>
+                  <Link to={`/popular/${id}`} className={styles.link_title}>
                     <p>{item.original_name}</p>
                   </Link>
                   <p>Rate: {item.vote_average}</p>

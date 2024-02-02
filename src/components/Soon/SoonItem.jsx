@@ -1,20 +1,20 @@
 import { useState, useEffect } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import Spinner from '../Spinner/Spinner';
-import styles from './Films.module.css';
+import styles from './Soon.module.css';
 import movieService from '../../utils/movie';
 import img from '../../assets/image-not-found.jpg';
 import err from '../../assets/7VE.gif';
 
-export default function FilmItem() {
+export default function SoonItem() {
   const [films, setFilms] = useState();
   const [loading, setLoading] = useState(true);
-  const { filmId } = useParams();
+  const { soonId } = useParams();
   const navigate = useNavigate();
 
   async function getFilmById() {
     try {
-      const data = await movieService.fetchFilmById(filmId);
+      const data = await movieService.fetchPopularById(soonId);
       setFilms(data);
       setLoading(false);
     } catch (error) {
@@ -24,7 +24,7 @@ export default function FilmItem() {
 
   useEffect(() => {
     getFilmById();
-  }, [filmId]);
+  }, [soonId]);
 
   if (!films && !loading) {
     return (
@@ -39,7 +39,7 @@ export default function FilmItem() {
     <div className={styles.container}>
       {films ? (
         <>
-          <h2 className={styles.title}>{films.original_title}</h2>
+          <h2 className={styles.title}>{films.name}</h2>
           <button onClick={() => navigate(-1)}>Go Back</button>
           <br />
           <br />
@@ -60,7 +60,7 @@ export default function FilmItem() {
                   />
                 </a>
                 <div className={styles.description}>
-                  <p>{films.original_title}</p>
+                  <p>{films.name}</p>
                   <p>Popularity: {films.popularity}</p>
                   <p>Last date: {films.last_air_date?.slice(0, 4) || 'Soon'}</p>
                   <p>Language: {films.original_language}</p>
