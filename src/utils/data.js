@@ -9,24 +9,9 @@ export const menu_items = [
     nameRu: 'Сериалы',
     nameEn: 'serials',
   },
-  // {
-  //   id: 3,
-  //   nameRu: 'Телепередачи',
-  //   nameEn: 'tv',
-  // },
-  // {
-  //   id: 4,
-  //   nameRu: 'Мультфильмы',
-  //   nameEn: 'animation',
-  // },
   {
     id: 3,
     nameRu: 'Скоро',
     nameEn: 'soon',
   },
-  // {
-  //   id: 4,
-  //   nameRu: 'Подборки',
-  //   nameEn: 'collections',
-  // },
 ];

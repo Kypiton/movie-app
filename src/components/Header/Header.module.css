@@ -48,9 +48,11 @@
   gap: 1em;
 }
 
-.userImg {
-  width: 32px;
-  height: 32px;
-  border-radius: 50%;
+.logIn {
   cursor: pointer;
+  text-decoration: none;
+}
+
+.logIn:hover {
+  color: orange;
 }

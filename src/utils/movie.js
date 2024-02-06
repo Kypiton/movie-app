@@ -5,6 +5,15 @@ class MovieService {
     this.$http = httpService;
   }
 
+  async auth() {
+    try {
+      const data = await this.$http.get('/authentication');
+      return data;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   async fetchPopular() {
     try {
       const data = await this.$http.get(

@@ -1,0 +1,16 @@
+.label {
+  display: block;
+}
+
+.submit {
+  margin-top: 1rem;
+}
+
+.password {
+  margin-top: 1rem;
+}
+
+.logIn {
+  display: grid;
+  place-content: center;
+}

@@ -35,6 +35,8 @@ export default function PopularItem() {
     );
   }
 
+  console.log(popularId);
+
   return (
     <div className={styles.container}>
       {films ? (
