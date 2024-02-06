@@ -15,7 +15,12 @@ export default function Layout({ children }) {
 
   return (
     <>
-      <Header authorized={authorized} username={username} />
+      <Header
+        authorized={authorized}
+        username={username}
+        setUsername={setUsername}
+        setAuthorized={setAuthorized}
+      />
       <User.Provider value={setUsername}>
         <Auth.Provider value={setAuthorized}>
           <Username.Provider value={username}>

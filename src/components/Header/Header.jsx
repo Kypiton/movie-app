@@ -1,18 +1,26 @@
 import PropTypes from 'prop-types';
 import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
 import { menu_items } from '../../utils/data';
 import logo from '../../assets/logo.png';
 
 import styles from './Header.module.css';
 
-export default function Header({ authorized, username }) {
+export default function Header({ authorized, username, setUsername, setAuthorized }) {
+  useEffect(() => {
+    const authorized = localStorage.getItem('authorized');
+    const username = localStorage.getItem('username');
+    if (username) setUsername(username);
+    if (authorized) setAuthorized(true);
+  }, []);
+
   return (
     <header className={styles.header}>
       <div className={styles.left}>
         <ul className={styles.menu}>
           <li>
-            <Link to='/popular'>
+            <Link to={authorized ? '/popular' : '/login'}>
               <img src={logo} alt='logo' className={styles.logo} />
             </Link>
           </li>
@@ -39,4 +47,6 @@ export default function Header({ authorized, username }) {
 Header.propTypes = {
   authorized: PropTypes.bool,
   username: PropTypes.string,
+  setUsername: PropTypes.func,
+  setAuthorized: PropTypes.func,
 };

@@ -29,6 +29,12 @@ export default function Login() {
     getFilms();
   }, []);
 
+  useEffect(() => {
+    localStorage.setItem('username', JSON.stringify(username));
+    localStorage.setItem('password', JSON.stringify(password));
+    localStorage.setItem('authorized', JSON.stringify(authorized));
+  }, [username, password, authorized]);
+
   function handleSubmit(e) {
     e.preventDefault();
     if (username === 'Dan4ikAvansys' && password === 'reactmovie' && message.success) {
