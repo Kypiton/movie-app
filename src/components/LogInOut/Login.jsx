@@ -35,6 +35,14 @@ export default function Login() {
     localStorage.setItem('authorized', JSON.stringify(authorized));
   }, [username, password, authorized]);
 
+  useEffect(() => {
+    const storedUsername = localStorage.getItem('username');
+    const storedAuthorized = localStorage.getItem('authorized');
+
+    if (storedUsername) setUsername(JSON.parse(storedUsername));
+    if (storedAuthorized) setAuthorized(prev => !prev);
+  }, []);
+
   function handleSubmit(e) {
     e.preventDefault();
     if (username === 'Dan4ikAvansys' && password === 'reactmovie' && message.success) {

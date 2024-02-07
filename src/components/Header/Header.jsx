@@ -1,5 +1,5 @@
 import PropTypes from 'prop-types';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 import { useEffect } from 'react';
 
 import { menu_items } from '../../utils/data';
@@ -8,12 +8,24 @@ import logo from '../../assets/logo.png';
 import styles from './Header.module.css';
 
 export default function Header({ authorized, username, setUsername, setAuthorized }) {
+  const navigate = useNavigate();
+
   useEffect(() => {
     const authorized = localStorage.getItem('authorized');
     const username = localStorage.getItem('username');
-    if (username) setUsername(username);
+    if (username) setUsername(JSON.parse(username));
     if (authorized) setAuthorized(true);
   }, []);
+
+  function handleLogout() {
+    localStorage.removeItem('username');
+    localStorage.removeItem('authorized');
+    setUsername('');
+    setAuthorized(false);
+    navigate('/login');
+  }
+
+  console.log(authorized);
 
   return (
     <header className={styles.header}>
@@ -37,7 +49,7 @@ export default function Header({ authorized, username, setUsername, setAuthorize
         <svg height='18' width='18' className={styles.icon} viewBox='0 0 16 16'>
           <path d='M11.742 10.344a6.5 6.5 0 1 0-1.397 1.398h-.001c.03.04.062.078.098.115l3.85 3.85a1 1 0 0 0 1.415-1.414l-3.85-3.85a1.007 1.007 0 0 0-.115-.1zM12 6.5a5.5 5.5 0 1 1-11 0 5.5 5.5 0 0 1 11 0z'></path>
         </svg>
-        {authorized && <button>Log Out</button>}
+        {authorized && <button onClick={handleLogout}>Log Out</button>}
         {authorized && <p>{username}</p>}
       </div>
     </header>
