@@ -1,0 +1,33 @@
+.image {
+  max-width: 260px;
+  max-height: 385px;
+}
+
+.aboutFilm {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 40px;
+}
+
+.right > p {
+  margin-top: 10px;
+}
+
+@keyframes blink {
+  0% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 1);
+  }
+  50% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0);
+  }
+  100% {
+    text-shadow: 0 0 10px rgba(255, 255, 255, 1);
+  }
+}
+
+.blinking {
+  animation: blink 0.8s infinite;
+  text-decoration: none;
+  font-size: larger;
+}

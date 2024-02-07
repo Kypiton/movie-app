@@ -78,7 +78,7 @@ class MovieService {
 
   async fetchSoonById(id) {
     try {
-      const data = await this.$http.get(`/discover/movie/${id}?sort_by=upcoming.desc`);
+      const data = await this.$http.get(`/movie/${id}?language=en-US`);
       return data;
     } catch (error) {
       console.log(error);

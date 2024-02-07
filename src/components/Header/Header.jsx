@@ -25,8 +25,6 @@ export default function Header({ authorized, username, setUsername, setAuthorize
     navigate('/login');
   }
 
-  console.log(authorized);
-
   return (
     <header className={styles.header}>
       <div className={styles.left}>
