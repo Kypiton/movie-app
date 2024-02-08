@@ -7,6 +7,7 @@ import SoonItem from '../components/Soon/SoonItem';
 import Login from '../components/LogInOut/Login';
 import Films from '../components/Films/Films';
 import Soon from '../components/Soon/Soon';
+import NotFound from '../components/NotFound/NotFound';
 
 export const routes = [
   {
@@ -44,5 +45,9 @@ export const routes = [
   {
     path: '/soon/:soonId',
     element: <SoonItem />,
+  },
+  {
+    path: '*',
+    element: <NotFound />,
   },
 ];
