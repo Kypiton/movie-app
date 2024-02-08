@@ -4,7 +4,7 @@ import FilmItem from '../components/Films/FilmItem';
 import Serials from '../components/Serials/Serials';
 import Popular from '../components/Popular/Popular';
 import SoonItem from '../components/Soon/SoonItem';
-import Login from '../components/LogInOut/LogIn';
+import Login from '../components/LogInOut/Login';
 import Films from '../components/Films/Films';
 import Soon from '../components/Soon/Soon';
 

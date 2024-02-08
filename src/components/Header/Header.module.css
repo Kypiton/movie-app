@@ -56,3 +56,18 @@
 .logIn:hover {
   color: orange;
 }
+
+.search {
+  color: #f1f1f1;
+  background: transparent;
+  border: 1px solid #424242;
+  box-sizing: border-box;
+  border-radius: 28px;
+  padding: 0.2rem 1rem 0.2rem 1rem;
+  outline: none;
+}
+
+.listPicture {
+  list-style-type: none;
+  text-decoration: none;
+}
