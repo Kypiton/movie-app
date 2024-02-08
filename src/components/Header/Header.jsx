@@ -37,7 +37,7 @@ export default function Header({ authorized, username, setUsername, setAuthorize
       if (pictures.length > 0) {
         const firstMedia = pictures[0];
         navigate(`/${firstMedia.title ? 'films' : 'serials'}/${firstMedia.id}`);
-      } else navigate('nothing');
+      }
       setSearch('');
     } catch (error) {
       console.error(error);

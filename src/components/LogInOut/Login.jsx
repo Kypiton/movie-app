@@ -10,11 +10,11 @@ import styles from './Auth.module.css';
 export default function Login() {
   const [message, setMessage] = useState('');
   const [password, setPassword] = useState('');
-  const navigate = useNavigate();
   const setAuthorized = useContext(Auth);
   const setUsername = useContext(User);
   const username = useContext(Username);
   const authorized = useContext(Authorized);
+  const navigate = useNavigate();
 
   async function getFilms() {
     try {
