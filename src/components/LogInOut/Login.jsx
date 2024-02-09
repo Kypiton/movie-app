@@ -65,7 +65,6 @@ export default function Login() {
           onChange={e => setUsername(e.target.value)}
         />
       </div>
-
       <div className={styles.password}>
         <label htmlFor='pass' className={styles.label}>
           Password (8 characters minimum):
