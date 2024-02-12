@@ -8,14 +8,17 @@ import err from '../../assets/7VE.gif';
 
 export default function FilmItem() {
   const [filmItem, setFilmItem] = useState();
+  const [filmItem2, setFilmItem2] = useState();
   const [loading, setLoading] = useState(true);
   const { filmId } = useParams();
   const navigate = useNavigate();
 
   async function getFilms() {
     try {
-      const data = await movieService.fetchFilmById(filmId);
-      setFilmItem(data);
+      const data1 = await movieService.fetchFilmById(filmId);
+      const data2 = await movieService.fetchCreditsFilmId(filmId);
+      setFilmItem(data1);
+      setFilmItem2(data2.slice(0, 10).map(item => item.original_name));
       setLoading(false);
     } catch (error) {
       console.error(error);
@@ -26,7 +29,7 @@ export default function FilmItem() {
     getFilms();
   }, [filmId]);
 
-  if (!filmItem && !loading) {
+  if (!filmItem && !filmItem2 && !loading) {
     return (
       <>
         <img src={err} alt='err' style={{ display: 'block', margin: '0 auto' }} />
@@ -34,6 +37,8 @@ export default function FilmItem() {
       </>
     );
   }
+
+  console.log(filmItem2);
 
   return (
     <div className={styles.container}>
@@ -94,6 +99,13 @@ export default function FilmItem() {
                       </a>
                     </>
                   ) : null}
+                </p>
+                <p>
+                  {!filmItem2 ? null : (
+                    <>
+                      <b>Актеры</b>: {filmItem2.map(item => item).join(', ')}
+                    </>
+                  )}
                 </p>
                 <p style={{ maxWidth: 600 }}>
                   {filmItem.overview ? (

@@ -3,7 +3,7 @@ import { useContext } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import movieService from '../../utils/movie';
-import { User, Auth, Username, Authorized } from '../Layout/Layout';
+import { User, Auth, Username } from '../Layout/Layout';
 
 import styles from './Auth.module.css';
 
@@ -13,7 +13,7 @@ export default function Login() {
   const setAuthorized = useContext(Auth);
   const setUsername = useContext(User);
   const username = useContext(Username);
-  const authorized = useContext(Authorized);
+  // const authorized = useContext(Authorized);
   const navigate = useNavigate();
 
   async function getFilms() {
@@ -29,19 +29,19 @@ export default function Login() {
     getFilms();
   }, []);
 
-  useEffect(() => {
-    localStorage.setItem('username', JSON.stringify(username));
-    localStorage.setItem('password', JSON.stringify(password));
-    localStorage.setItem('authorized', JSON.stringify(authorized));
-  }, [username, password, authorized]);
+  // useEffect(() => {
+  //   localStorage.setItem('username', JSON.stringify(username));
+  //   localStorage.setItem('password', JSON.stringify(password));
+  //   localStorage.setItem('authorized', JSON.stringify(authorized));
+  // }, [username, password, authorized]);
 
-  useEffect(() => {
-    const storedUsername = localStorage.getItem('username');
-    const storedAuthorized = localStorage.getItem('authorized');
+  // useEffect(() => {
+  //   const storedUsername = localStorage.getItem('username');
+  //   const storedAuthorized = localStorage.getItem('authorized');
 
-    if (storedUsername) setUsername(JSON.parse(storedUsername));
-    if (storedAuthorized) setAuthorized(prev => !prev);
-  }, []);
+  //   if (storedUsername) setUsername(JSON.parse(storedUsername));
+  //   if (storedAuthorized) setAuthorized(prev => !prev);
+  // }, []);
 
   function handleSubmit(e) {
     e.preventDefault();

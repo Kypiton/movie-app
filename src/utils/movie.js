@@ -54,6 +54,15 @@ class MovieService {
     }
   }
 
+  async fetchCreditsFilmId(id) {
+    try {
+      const data = await this.$http.get(`/movie/${id}/credits`);
+      return data.cast;
+    } catch (error) {
+      console.log(error);
+    }
+  }
+
   async fetchSerials() {
     try {
       const data = await this.$http.get(

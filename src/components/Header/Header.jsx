@@ -12,8 +12,8 @@ export default function Header({ authorized, username, setUsername, setAuthorize
   const navigate = useNavigate();
 
   function handleLogout() {
-    localStorage.removeItem('username');
-    localStorage.removeItem('authorized');
+    // localStorage.removeItem('username');
+    // localStorage.removeItem('authorized');
     setUsername('');
     setAuthorized(false);
     navigate('/login');
@@ -48,12 +48,12 @@ export default function Header({ authorized, username, setUsername, setAuthorize
     handleSearch();
   }, []);
 
-  useEffect(() => {
-    const authorized = localStorage.getItem('authorized');
-    const username = localStorage.getItem('username');
-    if (username) setUsername(JSON.parse(username));
-    if (authorized) setAuthorized(true);
-  }, []);
+  // useEffect(() => {
+  //   const authorized = localStorage.getItem('authorized');
+  //   const username = localStorage.getItem('username');
+  //   if (username) setUsername(JSON.parse(username));
+  //   if (authorized) setAuthorized(true);
+  // }, []);
 
   return (
     <header className={styles.header}>

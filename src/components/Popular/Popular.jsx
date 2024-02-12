@@ -4,6 +4,8 @@ import Spinner from '../Spinner/Spinner';
 import styles from './Popular.module.css';
 import movieService from '../../utils/movie';
 import img from '../../assets/image-not-found.jpg';
+import Films from '../Films/Films';
+import Serials from '../Serials/Serials';
 
 export default function Popular() {
   const [films, setFilms] = useState([]);
@@ -30,7 +32,7 @@ export default function Popular() {
         <Spinner />
       ) : (
         <ul className={styles.menu_list}>
-          {films.map(function (item) {
+          {films?.map(function (item) {
             const id = item.id;
             return (
               <li key={id} className={styles.list}>
@@ -56,6 +58,10 @@ export default function Popular() {
           })}
         </ul>
       )}
+      <br />
+      <br />
+      <Films />
+      <Serials />
     </div>
   );
 }
